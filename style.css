@@ -1,3 +1,16 @@
+.tudo {
+    width: 800px;
+    height: 900px;
+    background-color:#f2ceab;
+    border: solid 2px;
+    border-bottom: solid 10px;
+    border-right: solid 10px;
+    border-left: solid 10px #f2ceab;
+    border-top: solid 10px #f2ceab;;
+    background-size: 150px;
+    margin: 0 auto;
+    align-items: center;
+}
 .btig {
 
     color: white;
@@ -8,9 +21,9 @@
 
 }
 
-.bttw {
+.btgt {
     color: white;
-    background-color: rgb(66, 66, 255);
+    background-color: rgb(0, 0, 0);
     padding: 13px;
     border-radius: 10px;
     text-decoration:none
@@ -28,11 +41,10 @@
 .btem {
 
     color: white ;
-    background-color: #000000;
+    background-color: #e2ad1b;
     padding: 13px;
     border-radius: 10px;
     text-decoration:none
-}
 }
 
 
@@ -46,7 +58,8 @@ font-size: larger;
 
 
 .apr {
-
+    font-size: xx-large;
+    font-weight: bold;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
 }
@@ -56,7 +69,7 @@ form {
    text-align: center;
 }
 body {
-   background-color: rgb(208, 228, 228);
+   background-color:#72b5a4;
    text-align: center;
 }
 .foto {
@@ -69,7 +82,12 @@ body {
    margin-right: auto; 
 }
 .login {
-   display: block;  
    text-align: right;
-   
+   position: absolute; right: 0;
+    color: white ;
+    background-color: #595757;
+    padding: 13px;
+    padding-right: 10px;
+    text-decoration:none;
+    
 }
