@@ -1,15 +1,12 @@
 .tudo {
+    text-align: center;
     width: 800px;
     height: 900px;
     background-color:#f2ceab;
-    border: solid 2px;
-    border-bottom: solid 10px;
-    border-right: solid 10px;
-    border-left: solid 10px #f2ceab;
-    border-top: solid 10px #f2ceab;;
-    background-size: 150px;
-    margin: 0 auto;
-    align-items: center;
+    box-shadow: -20px 20px rgb(53, 38, 29);
+    text-align: center;
+    margin: auto;
+
 }
 .btig {
 
@@ -69,7 +66,7 @@ form {
    text-align: center;
 }
 body {
-   background-color:#72b5a4;
+   background-color:#78b4a5;
    text-align: center;
 }
 .foto {
