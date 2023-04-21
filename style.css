@@ -17,7 +17,7 @@
     width: 400px;
     height: 350px;
     background-color:#f2ceab;
-    box-shadow: 40px +40px rgba(53, 38, 29, 0.603);
+    box-shadow: 15px +15px rgba(53, 38, 29, 0.603);
     position: relative;
     top: 50%;
     transform: translateY(80%);
@@ -78,7 +78,6 @@
 font-size: larger;
 
 }
-
 
 
 .apr {
