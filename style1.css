@@ -1,9 +1,44 @@
 .navbar-test {
-width: 180px;
+width: 150px;
+position: fixed;
+border:none !important;
+
+}
+
+.minhanavbar {
+    background-color: white;   
+
 
 }
 
 .nav-item {
 
     padding-bottom: 50px;
+}
+
+.foto {
+  
+    text-align: center;
+    padding-top: 100px;
+}
+
+.tudo {
+    text-align: center;
+    width: 850px;
+    height: 700px;
+    background-color:#355a85    ;
+    box-shadow: 40px +40px rgba(53, 38, 29, 0.603);
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(8%);}
+
+    .texto {
+            margin: 10px;
+            padding-top: 20px;
+    }
+
+    body {
+        background-image: linear-gradient(to bottom right,#d3d8d7   ,  #192532);
+        background-size: 100% 300%;
 }
