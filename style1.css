@@ -1,44 +1,91 @@
 .navbar-test {
-width: 150px;
-position: fixed;
-border:none !important;
+    width: 150px;
+    position: fixed;
+    border:none !important;
 
 }
 
 .minhanavbar {
     background-color: white;   
-
+    height: 1000px;
+    margin-left: -10px;
+    margin-top: -10px;
 
 }
 
 .nav-item {
-
+    text-align: center;
     padding-bottom: 50px;
+    font-size: large;
 }
 
 .foto {
-  
     text-align: center;
-    padding-top: 100px;
+    padding-top: 40px;
 }
 
 .tudo {
     text-align: center;
-    width: 850px;
+    width: 650px;
     height: 700px;
-    background-color:#355a85    ;
-    box-shadow: 40px +40px rgba(53, 38, 29, 0.603);
+    background-color:#ffffff    ;
+    box-shadow: 30px +30px rgba(30, 30, 49, 0.603);
     margin: auto;
     position: relative;
     top: 50%;
-    transform: translateY(8%);}
+    transform: translateY(8%);
+    
+}
+    
 
-    .texto {
+.texto {
             margin: 10px;
             padding-top: 20px;
-    }
-
-    body {
-        background-image: linear-gradient(to bottom right,#d3d8d7   ,  #192532);
-        background-size: 100% 300%;
 }
+
+body {
+    background-image: linear-gradient(to bottom right,#030000   ,  #121029);
+    background-size: 100% 300%;
+}
+    
+.borda {
+    margin: auto;
+    border: 5px  solid rgb(149, 153, 149);
+    height: 645px ;
+    width: 580px;
+    
+}
+
+.btnpp {
+	padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+}
+p{
+    color: black;
+}
+
+a{
+    color: black !important;
+
+}
+
+
+.contatos {
+
+    position: fixed;
+    left: 1500px;
+    top: 300px;
+
+}
+
+#mail:hover {   
+
+    vertical-align: middle;
+
+    -moz-transition: all 0.5s;
+    
+    -webkit-transition: all 0.5s;
+    
+    transition: all 0.5s;
+}
+    
