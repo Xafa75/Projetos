@@ -1,0 +1,63 @@
+.nav-link {
+    text-align: center;
+    padding-top: 20px;
+
+}
+
+.minhanavbar {
+    background-color: white;   
+    height: 1000px;
+    width: 200px;
+    margin-left: -10px;
+    margin-top: -10px;
+    position: fixed;
+}
+
+.tudo {
+    text-align: center;
+    width: 650px;
+    height: 700px;
+    background-color:#ffffff;
+    box-shadow: 20px +20px rgba(30, 30, 49, 0.603);
+    margin: auto;
+    position: relative;
+    transform: translateY(8%);
+}
+
+
+body {  
+    background-image: linear-gradient(to bottom right,#030000   ,  #121029);
+    background-size: 100% 300%;
+}
+
+.contatos {
+    top: 300px;
+    left: 80%;  
+    position:fixed;
+    
+
+}   
+
+#ic
+{
+    opacity: 100%;
+
+}
+
+#ic:hover {   
+
+    vertical-align: middle;
+
+    -moz-transition: all 0.5s;
+    
+    -webkit-transition: all 0.5s;
+    
+    transition: all 0.5s;
+
+    opacity: 65%;
+}
+
+
+
+
+    

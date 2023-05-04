@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portifólio</title>
+        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="img/Azami_Icon.webp">
+    
+    </head>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-3 minhanav">
+            <ul class="nav flex-column minhanavbar">
+                <li class="nav-item">
+                  <a class="nav-link active" style="margin-top: 300px;" href="#">Inicio</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#python">Python</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#js">JavaScript</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Github</a></li>
+      
+                </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="tudo" >  <br>
+                <div class="borda">
+                  <div class="foto">
+               <img src="img/foto.jpg" width="220" height="270" title="Anthony Carvalho" class="rounded">
+                  </div>
+               
+                  <p class="texto" style="margin: 10px;">Sou desenvolvedor júnior, tenho 19 anos, atualmente curso o terceiro
+                  ano do ensino médio, tenho conhecimento em linguagens de programação
+                  e busco oportunidades de emprego na área de desenvolvimento de software.
+                  <br>Tenho planos de entrar na faculdade de <strong>Sistemas de informação</strong> no CEFET ou  <strong>Engenharia da Computação</strong> na UERJ.
+                  </p>
+      
+                </div>  
+              </div>
+              <div class="tudo" style="top: 200px;" id="python"> <br>
+                <div class="borda">
+                  <div class="foto">
+                    <img src="img/python-img.jpg" width="500" height="270" title="python-img" class="rounded">
+                  </div>
+                  <p class="texto" style="margin: 10px;">Meus conhecimentos em Python extendem-se a: <strong> Análise de dados</strong>, <strong>Web Scrapping</strong>
+                    ,<strong>Consumo de API's</strong> e <strong>interfaces gráficas simples</strong>.<br>
+                      Minha formação vem de cursos disponibilizados pela COOPE/IDEAS em parceria com a UERJ
+                    </p><br>
+                    <button type="button" class="btn btn-dark" href="placeholder">Projetos em Python</button>
+                </div>
+              </div>
+              <div class="tudo" style="top: 400px;" id="js"> <br>
+                <div class="borda">
+                  <div class="foto">
+                    <img src="img/js-img.webp" width="500" height="240" title="js-img" class="rounded">
+                  </div>
+                  <p class="texto" style="margin: 10px;">JavaScript é um aprendizado em processo, linguagem da qual ainda estou me aprofundando sobre
+                    </p><br>
+                    <button type="button" class="btn btn-dark" href="placeholder">Projetos em JS</button>
+                </div>
+              </div>  
+          </div>
+          <div class="col-md-3 contatos">
+            <div><a href="mailto:anthonycarv75@gmail.com" target="_blank"><p><i class="fa-regular fa-envelope fa-2xl" style="color: #fcfcfd;" id="ic"></i></p></a><br>
+                <a href="https://www.linkedin.com/in/anthony-carvalho-9b6055268/" target="_blank"><p><i class="fa-brands fa-linkedin-in fa-2xl" style="color: #fcfcfd;" id="ic"></i></p></a><br>
+                <a href="https://api.whatsapp.com/send?phone=5522981477532&text=" target="_blank"><p><i class="fa-brands fa-whatsapp fa-2xl" style="color: #fcfcfd;" id="ic"></i></p></a><br>
+                <a href="https://www.instagram.com/anthony.carv/" target="_blank"><p><i class="fa-brands fa-instagram fa-2xl" style="color: #fcfcfd;" id="ic"></i></p></a><br>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"> Open Sidebar </button>
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" data-bs-keyboard="false" data-bs-backdrop="false" aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Sidebar</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                  <div id="sidebar" class="border rounded">
+                      <div class="nav flex-column py-3">
+                          <a href="#menu1" class="nav-link collapsed" data-bs-toggle="collapse" role="button">Item 1</a>
+                          <div class="collapse ps-2" id="menu1" data-bs-parent="#sidebar">
+                              <a href="#menu1sub1" class="nav-link" data-bs-toggle="collapse" aria-expanded="false">Subitem1 1</a>
+                              <div class="collapse ps-2" id="menu1sub1" data-bs-parent="#menu1">
+                                  <a href="#" class="nav-link" data-bs-parent="#menu1sub1">Subitem a</a>
+                                  <a href="#" class="nav-link" data-bs-parent="#menu1sub1">Subitem b</a>
+                                  <a href="#menu1sub1sub1" class="nav-link" data-bs-toggle="collapse" aria-expanded="false">Subitem c </a>
+                                  <div class="collapse" id="menu1sub1sub1" data-bs-parent="#menu1sub1sub1">
+                                      <a href="#" class="nav-link">Subitem c.1</a>
+                                      <a href="#" class="nav-link">Subitem c.2</a>
+                                  </div>
+                                  <a href="#" class="nav-link" data-bs-parent="#menu1sub1">Subitem d</a>
+                                  <a href="#menu1sub1sub2" class="nav-link" data-bs-toggle="collapse" aria-expanded="false">Subitem e </a>
+                                  <div class="collapse" id="menu1sub1sub2">
+                                      <a href="#" class="nav-link">Subitem e.1</a>
+                                      <a href="#" class="nav-link">Subitem e.2</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <a href="#menu2" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-parent="#sidebar">Item 2</a>
+                          <div class="collapse ps-2" id="menu2" data-bs-parent="#sidebar">
+                              <a href="#menu2sub1" class="nav-link" data-bs-toggle="collapse" aria-expanded="false">Subitem2 1</a>
+                              <div class="collapse ps-2" id="menu2sub1" data-bs-parent="#menu2">
+                                  <a href="#" class="nav-link" data-bs-parent="#menu2sub1">Subitem A</a>
+                                  <a href="#" class="nav-link" data-bs-parent="#menu2sub1">Subitem B</a>
+                                  <a href="#" class="nav-link" data-bs-parent="#menu2sub1">Subitem C</a>
+                              </div>
+                          </div>
+                          <a href="#" class="nav-link">Item 3</a>
+                          <a href="#" class="nav-link">Item 4</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
