@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Portifólio</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style2.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -13,22 +16,40 @@
         <link rel="icon" type="image/x-icon" href="img/Azami_Icon.webp">
     
     </head>
-</head>
-<body>
+</head><header>
+</header>
+<body> 
+<div class="container-fluid mt-3" style="position: fixed;  z-index: 2;">
+    <nav class="navbar navbar-expand-md navbar-light minhanavbar">
+        <a href="#" class="navbar-brand">
+            <img src="livro.png" style="width: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#col1">
+            <span class="navbar-toggler-icon"></span> 
+        </button>
+        <div class="collapse navbar-collapse" id="col1">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#python" class="nav-link">Python</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#js" class="nav-link">JavaScript</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Github</a>
+                </li>
+
+            </ul>
+        </div>
+    
+    </nav>
+</div> 
     <div class="container-fluid">
         <div class="row">
           <div class="col-3 minhanav">
-            <ul class="nav flex-column minhanavbar">
-                <li class="nav-item">
-                  <a class="nav-link active" style="margin-top: 300px;" href="#">Inicio</a></li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#python">Python</a></li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#js">JavaScript</a></li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Github</a></li>
-      
-                </ul>
           </div>
           <div class="col-md-6">
             <div class="tudo" >  <br>
@@ -48,7 +69,7 @@
               <div class="tudo" style="top: 200px;" id="python"> <br>
                 <div class="borda">
                   <div class="foto">
-                    <img src="img/python-img.jpg" width="500" height="270" title="python-img" class="rounded">
+                    <img src="img/python-img.jpg" width="60%" height="60%" title="python-img" class="rounded">
                   </div>
                   <p class="texto" style="margin: 10px;">Meus conhecimentos em Python extendem-se a: <strong> Análise de dados</strong>, <strong>Web Scrapping</strong>
                     ,<strong>Consumo de API's</strong> e <strong>interfaces gráficas simples</strong>.<br>
@@ -60,7 +81,7 @@
               <div class="tudo" style="top: 400px;" id="js"> <br>
                 <div class="borda">
                   <div class="foto">
-                    <img src="img/js-img.webp" width="500" height="240" title="js-img" class="rounded">
+                    <img src="img/js-img.webp" width="60%" height="60%" title="js-img" class="rounded">
                   </div>
                   <p class="texto" style="margin: 10px;">JavaScript é um aprendizado em processo, linguagem da qual ainda estou me aprofundando sobre
                     </p><br>
@@ -68,7 +89,7 @@
                 </div>
               </div>  
           </div>
-          <div class="col-md-3 contatos">
+          <div class="col-md-3  contatos">
             <div><a href="mailto:anthonycarv75@gmail.com" target="_blank"><p><i class="fa-regular fa-envelope fa-2xl" style="color: #fcfcfd;" id="ic"></i></p></a><br>
                 <a href="https://www.linkedin.com/in/anthony-carvalho-9b6055268/" target="_blank"><p><i class="fa-brands fa-linkedin-in fa-2xl" style="color: #fcfcfd;" id="ic"></i></p></a><br>
                 <a href="https://api.whatsapp.com/send?phone=5522981477532&text=" target="_blank"><p><i class="fa-brands fa-whatsapp fa-2xl" style="color: #fcfcfd;" id="ic"></i></p></a><br>
@@ -78,49 +99,3 @@
       </div>
 </body>
 </html>
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"> Open Sidebar </button>
-          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" data-bs-keyboard="false" data-bs-backdrop="false" aria-labelledby="offcanvasExampleLabel">
-              <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Sidebar</h5>
-                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                  <div id="sidebar" class="border rounded">
-                      <div class="nav flex-column py-3">
-                          <a href="#menu1" class="nav-link collapsed" data-bs-toggle="collapse" role="button">Item 1</a>
-                          <div class="collapse ps-2" id="menu1" data-bs-parent="#sidebar">
-                              <a href="#menu1sub1" class="nav-link" data-bs-toggle="collapse" aria-expanded="false">Subitem1 1</a>
-                              <div class="collapse ps-2" id="menu1sub1" data-bs-parent="#menu1">
-                                  <a href="#" class="nav-link" data-bs-parent="#menu1sub1">Subitem a</a>
-                                  <a href="#" class="nav-link" data-bs-parent="#menu1sub1">Subitem b</a>
-                                  <a href="#menu1sub1sub1" class="nav-link" data-bs-toggle="collapse" aria-expanded="false">Subitem c </a>
-                                  <div class="collapse" id="menu1sub1sub1" data-bs-parent="#menu1sub1sub1">
-                                      <a href="#" class="nav-link">Subitem c.1</a>
-                                      <a href="#" class="nav-link">Subitem c.2</a>
-                                  </div>
-                                  <a href="#" class="nav-link" data-bs-parent="#menu1sub1">Subitem d</a>
-                                  <a href="#menu1sub1sub2" class="nav-link" data-bs-toggle="collapse" aria-expanded="false">Subitem e </a>
-                                  <div class="collapse" id="menu1sub1sub2">
-                                      <a href="#" class="nav-link">Subitem e.1</a>
-                                      <a href="#" class="nav-link">Subitem e.2</a>
-                                  </div>
-                              </div>
-                          </div>
-                          <a href="#menu2" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-parent="#sidebar">Item 2</a>
-                          <div class="collapse ps-2" id="menu2" data-bs-parent="#sidebar">
-                              <a href="#menu2sub1" class="nav-link" data-bs-toggle="collapse" aria-expanded="false">Subitem2 1</a>
-                              <div class="collapse ps-2" id="menu2sub1" data-bs-parent="#menu2">
-                                  <a href="#" class="nav-link" data-bs-parent="#menu2sub1">Subitem A</a>
-                                  <a href="#" class="nav-link" data-bs-parent="#menu2sub1">Subitem B</a>
-                                  <a href="#" class="nav-link" data-bs-parent="#menu2sub1">Subitem C</a>
-                              </div>
-                          </div>
-                          <a href="#" class="nav-link">Item 3</a>
-                          <a href="#" class="nav-link">Item 4</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
