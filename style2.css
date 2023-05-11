@@ -1,8 +1,8 @@
 .nav-item a {
-    justify-content: space-between;
+    padding-inline: 30px;
     
     text-align: center;
-    color: #030000;
+    color: #ffffff;
 }   
 
 
@@ -13,6 +13,7 @@ nav {
 }
 
 .tudo {
+    top: 1%;
     text-align: center;
     width: 100%;
     height: 700px;
