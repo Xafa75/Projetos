@@ -67,18 +67,17 @@ body {
 
     position: fixed;
 }
-https://work.caltech.edu/telecourse
 
 .ctt {
 
     text-align: center;
     position: absolute;
-    top: 3100px;
+    top: 2900px;
 }
 
 .wrap a {
     padding-bottom: 2vh;
-    padding-top: 10vh;
+    padding-top: 8vh;
     padding-inline: 10px ;
 }
 
