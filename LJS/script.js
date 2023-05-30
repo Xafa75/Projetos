@@ -78,8 +78,10 @@ form.addEventListener('submit',function(event){
 
 })
 
+
+
+function fibo(numeroMax){
 var lista = [1,1];
-var numeroMax = 10;
 var i = lista.length;
 while (i < numeroMax){
     var i = lista.length;
@@ -89,4 +91,34 @@ while (i < numeroMax){
     lista.push(n)
     
 }
-console.log(lista)
+console.log(lista)}
+
+
+function fibo2(maximo){
+    var lista = [1,1];
+    var i = lista.length;
+    while (lista[lista.length - 1] < maximo){
+        var i = lista.length;
+        var u1 = lista[lista.length - 1]
+        var u2 = lista[lista.length - 2]
+        var n = u1 + u2
+        lista.push(n)
+        
+    }
+    console.log(lista)}
+ 
+fibo(100)
+fibo2(500)
+
+function login(uNome, uSenha) {
+    if (uSenha == uNome) {
+    console.log("Senha e usuário não podem ser iguais.")
+}   else if (uSenha.length < 5 || uSenha.length > 12){
+    console.log("Sua senha deve ter entre 5 e 12 carácteres.")}
+    else {console.log("Cadastro concuído com sucesso!")}
+}
+login("anthony","atn876")
+   
+function fato(x) {
+    
+}
