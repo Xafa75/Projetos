@@ -46,9 +46,8 @@ if (diaSemana == 1) {
     console.log("Digite um número de 1 a 7")
 }
 
-var lado1 = 6;
-var lado2 = 8;
-var lado3 = 7;
+
+function triangulo(lado1,lado2,lado3){
 
 var soma1 = lado1 + lado2 >= lado3
 var soma2 = lado2 + lado3 >= lado1
@@ -65,7 +64,9 @@ if (soma1 && soma2 && soma3) {
     console.log("Triangulo Escaleno")}  
 }   else {
     console.log("Não é possivel construir um triangulo com as medidas dispostas")
-}
+}}
+
+
 
 const form = document.querySelector("#form")
 form.addEventListener('submit',function(event){
@@ -85,12 +86,14 @@ var lista = [1,1];
 var i = lista.length;
 while (i < numeroMax){
     var i = lista.length;
-    var u1 = lista[lista.length - 1]
+    var u1 = lista[lista.length - 1] 
     var u2 = lista[lista.length - 2]
     var n = u1 + u2
     lista.push(n)
     
 }
+var ultimo = lista[lista.length -1]
+send(ultimo,"#fiboResp")
 console.log(lista)}
 
 
@@ -105,10 +108,10 @@ function fibo2(maximo){
         lista.push(n)
         
     }
+    var ultimo = lista[lista.length -1]
+    send(ultimo, "#fibo2Resp")
     console.log(lista)}
  
-fibo(100)
-fibo2(500)
 
 function login(uNome, uSenha) {
     if (uSenha == uNome) {
@@ -117,8 +120,50 @@ function login(uNome, uSenha) {
     console.log("Sua senha deve ter entre 5 e 12 carácteres.")}
     else {console.log("Cadastro concuído com sucesso!")}
 }
-login("anthony","atn876")
-   
+
 function fato(x) {
-    
+    lista2=  []    
+    for (var item = 1;item <= x; item++){
+        lista2.push(item)
+    }
+    lista2.reverse()
+    console.log(lista2)
+    lista1 = [1,2]
+    while (lista1.length < x) {
+        var i1 = lista1[lista1.length -1]
+        var i2 = lista2[lista2.length -3]
+        lista2.pop()
+        var multi = i1*i2
+        lista1.push(multi)
+        
+    }
+    var ultimo = lista1[lista1.length -1]
+    console.log(lista1)
+    send(ultimo, "#fatoResp")
+}
+
+const fatoForm = document.querySelector("#fatoForm");
+fatoForm.addEventListener('submit',function(event){
+    event.preventDefault()
+    const fatoValue = document.querySelector("#fatoValue").value;
+    fato(fatoValue)
+})
+
+const fiboForm = document.querySelector("#fiboForm");
+fiboForm.addEventListener('submit',function(event){
+    event.preventDefault()
+    const fiboValue = document.querySelector("#fiboValue").value;
+    fibo(fiboValue)
+})
+
+const fibo2Form = document.querySelector("#fibo2Form");
+fibo2Form.addEventListener('submit',function(event){
+    event.preventDefault()
+    const fibo2Value = document.querySelector("#fibo2Value").value;
+    fibo2(fibo2Value)
+})
+
+
+function send(resposta, id) {
+    document.querySelector(id).innerHTML = resposta
 }
