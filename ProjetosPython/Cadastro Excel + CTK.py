@@ -45,6 +45,7 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
         except:
             statusvar.set("Feche o Excel!")
 
+
 janelaMenu = s.CTk() #Criando a janela
 janelaMenu.geometry("630x250") #Definindo o tamanho inicial da janela
 janelaMenu.title("Cadastro de Serviços") #Definindo nome da janela
