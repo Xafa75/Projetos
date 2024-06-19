@@ -16,7 +16,7 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
     try: #Tenta acessar a tabela
         book = load_workbook('data.xlsx') #Define o book ultilizado
         sheet = book['Sheet'] #Define a pagina utilizada
-        statusvar.set("Tabela encontrada")
+        statusvar.set("Tabela encontrada") 
     except:
         clientes = ["nome", "servicos", "dataVenda", "pago", "formaPagamento", "telefone", "primeiroCadastro"]
         book = openpyxl.Workbook()
@@ -49,7 +49,7 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
 janelaMenu = s.CTk() #Criando a janela
 janelaMenu.geometry("630x250") #Definindo o tamanho inicial da janela
 janelaMenu.title("Cadastro de Serviços") #Definindo nome da janela
-
+janelaMenu.resizable(False,False) #Trava a janela no tamanho definido
 s.set_appearance_mode("Dark")  #Modo de aparencia do programa (Light ou Dark)
 s.set_default_color_theme("dark-blue") #Modo de esquema de cores
 
