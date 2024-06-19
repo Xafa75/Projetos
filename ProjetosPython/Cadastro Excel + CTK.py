@@ -49,7 +49,7 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
 janelaMenu = s.CTk() #Criando a janela
 janelaMenu.geometry("630x250") #Definindo o tamanho inicial da janela
 janelaMenu.title("Cadastro de Serviços") #Definindo nome da janela
-janelaMenu.resizable(False,False) #Trava a janela no tamanho definido
+
 s.set_appearance_mode("Dark")  #Modo de aparencia do programa (Light ou Dark)
 s.set_default_color_theme("dark-blue") #Modo de esquema de cores
 
@@ -61,22 +61,22 @@ LabelCtrl.grid(row=6, column=2)
 LabelNome  = s.CTkLabel(janelaMenu, text="Nome:") #Label "Nome"
 LabelNome.grid(row=1,column=1,pady=10, padx=14)
 
-EntryNome = s.CTkEntry(janelaMenu, placeholder_text="Digite o nome", width=250) #caixa de entrada de nome
+EntryNome = s.CTkEntry(janelaMenu, placeholder_text="Digite o nome", border_color="Pink",width=250) #caixa de entrada de nome
 EntryNome.grid(row=1, column=2,pady=10,sticky="W")
 
 LabelValor = s.CTkLabel(janelaMenu,text="Valor:") #Label "Valor"
 LabelValor.grid(row=1,column=3, padx=10)
 
-EntryValor = s.CTkEntry(janelaMenu, placeholder_text="Valor...", width=100) #Caixa de entrada do valor
+EntryValor = s.CTkEntry(janelaMenu, placeholder_text="Valor...", border_color="Pink", width=100) #Caixa de entrada do valor
 EntryValor.grid(row=1, column=4,pady=10,sticky="W")
 
 LabelNumero = s.CTkLabel(janelaMenu, text="Celular:") #Label "Celular"
 LabelNumero.grid(row=2,column=1)
 
-EntryNumero = s.CTkEntry(janelaMenu, placeholder_text="(99)99999-9999") #Caixa de entrada de numeros
+EntryNumero = s.CTkEntry(janelaMenu, placeholder_text="(99)99999-9999",border_color="Pink") #Caixa de entrada de numeros
 EntryNumero.grid(row=2, column=2, sticky="W", padx=5,pady=10)
 
-OPTPagamento = s.CTkOptionMenu(janelaMenu, values=["Outro","Cartão","Dinheiro","Pix"],width= 85)  #Menu de opções de pagamento
+OPTPagamento = s.CTkOptionMenu(janelaMenu, text_color="Black", fg_color="Pink",button_color="Pink", button_hover_color="Pink",values=["Outro","Cartão","Dinheiro","Pix"],width= 85)  #Menu de opções de pagamento
 OPTPagamento.grid(row=1,column=5, padx=10)
 
 LabelOBS = s.CTkLabel(janelaMenu, text="Serviços:") #Label "Serviços"
@@ -85,13 +85,13 @@ LabelOBS.grid(row=3, column=1)
 LabelData = s.CTkLabel(janelaMenu,text=data) 
 LabelData.grid(row=6,column=1,padx=10, sticky="S")
 
-EntryOBS = s.CTkTextbox(janelaMenu,height=100,width=300) #Caixa de entrada para serviços
+EntryOBS = s.CTkTextbox(janelaMenu,height=100,width=300,border_width=2,border_color="Pink") #Caixa de entrada para serviços
 EntryOBS.grid(row=3,column=2,columnspan=2,rowspan=3,pady=10)
 
-ChkVisita = s.CTkCheckBox(janelaMenu,text="Primeiro Cadastro") #Check box primeiro cadastro
+ChkVisita = s.CTkCheckBox(janelaMenu,text="Primeiro Cadastro",border_color="Pink",hover_color="Pink",fg_color="Pink",border_width=2) #Check box primeiro cadastro
 ChkVisita.grid(row=2, column=4)
     
-BTNSalvar = s.CTkButton(janelaMenu,text="Salvar",width=100,command=lambda:EnvioExcel(EntryNome.get(),EntryOBS.get("1.0", "end-1c"),data,EntryValor.get(),OPTPagamento.get(),EntryNumero.get(), ChkVisita.get())) #Botão salvar
+BTNSalvar = s.CTkButton(janelaMenu,text="Salvar", text_color="Black", fg_color="Pink",width=100,command=lambda:EnvioExcel(EntryNome.get(),EntryOBS.get("1.0", "end-1c"),data,EntryValor.get(),OPTPagamento.get(),EntryNumero.get(), ChkVisita.get())) #Botão salvar
 BTNSalvar.grid(row=6,column=5)
 
 janelaMenu.mainloop()
