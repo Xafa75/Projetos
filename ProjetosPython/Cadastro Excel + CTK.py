@@ -45,21 +45,6 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
         except:
             statusvar.set("Feche o Excel!")
 
-def Voltar(j):
-    janelaMenu.deiconify()
-    j.withdraw()
-
-def funCadastros():
-    janelaMenu.withdraw()
-    JanelaCadastro = s.CTkToplevel(janelaMenu)
-    JanelaCadastro.geometry("600x300") #Definindo o tamanho inicial da janela
-    JanelaCadastro.title("Clientes Cadastrados") #Definindo nome da janela
-    JanelaCadastro.resizable(False,False)
-    s.set_appearance_mode("Dark")  
-    s.set_default_color_theme("dark-blue")
-    BTNVoltar = s.CTkButton(JanelaCadastro,text="Voltar",command=lambda:Voltar(JanelaCadastro))
-    BTNVoltar.grid(row=1,column=1)
-
 
 janelaMenu = s.CTk() #Criando a janela
 janelaMenu.geometry("630x250") #Definindo o tamanho inicial da janela
@@ -71,7 +56,7 @@ s.set_default_color_theme("dark-blue") #Modo de esquema de cores
 statusvar = s.StringVar()
 statusvar.set("Conectado!")
 LabelCtrl = s.CTkLabel(janelaMenu, textvariable=statusvar, padx=10)
-LabelCtrl.grid(row=3, column=4)
+LabelCtrl.grid(row=6, column=2)
 
 LabelNome  = s.CTkLabel(janelaMenu, text="Nome:") #Label "Nome"
 LabelNome.grid(row=1,column=1,pady=10, padx=14)
@@ -108,8 +93,5 @@ ChkVisita.grid(row=2, column=4)
     
 BTNSalvar = s.CTkButton(janelaMenu,text="Salvar",width=100,command=lambda:EnvioExcel(EntryNome.get(),EntryOBS.get("1.0", "end-1c"),data,EntryValor.get(),OPTPagamento.get(),EntryNumero.get(), ChkVisita.get())) #Botão salvar
 BTNSalvar.grid(row=6,column=5)
-
-BTNVer = s.CTkButton(janelaMenu,text="Ver cadastros",command=funCadastros,width=100) #Botao "Ver cadastros"
-BTNVer.grid(row=6,column=4,padx=5)
 
 janelaMenu.mainloop()
