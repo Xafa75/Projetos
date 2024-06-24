@@ -10,6 +10,10 @@ from openpyxl import Workbook,load_workbook
 
 #Adicionar:
 #Versionamento
+#Pagina de pesquisa
+#armazenar na pasta documentos
+#fazer backup
+
 
 def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCadastro): #Definindo a função
     statusvar.set("") #Limpa a variavel de status
@@ -44,6 +48,12 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
             statusvar.set("Cadastrado com sucesso!")
         except:
             statusvar.set("Feche o Excel!")
+    EntryNome.delete(0,"end")
+    EntryValor.delete(0,"end")
+    EntryNumero.delete(0,"end")
+    EntryOBS.delete('1.0',s.END)
+    EntryNome.focus()
+    
 
 
 janelaMenu = s.CTk() #Criando a janela
