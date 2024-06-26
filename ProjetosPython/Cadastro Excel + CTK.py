@@ -21,73 +21,44 @@ from openpyxl import Workbook,load_workbook
 
 
 global janelaPesquisa
-
+global tree
 def pesquisa(nomePesquisado):
-    try:
-        df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
-        df2 = df[df['nome'].str.contains(nomePesquisado)]
-        janelaMenu.withdraw()
-        JanelaPesquisa = s.CTkToplevel(janelaMenu)
-        JanelaPesquisa.geometry("1000x600") #Definindo o tamanho inicial da janela
-        JanelaPesquisa.title("Clientes Cadastrados") #Definindo nome da janela
-        JanelaPesquisa.resizable(False,False)
-        s.set_appearance_mode("Dark")
-        df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
-        df2 = df[df['nome'].str.contains(nomePesquisado)]
-        linhaInicio = 2
+    df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
+    df2 = df[df['nome'].str.contains(nomePesquisado)]
+    janelaMenu.withdraw()
+    JanelaPesquisa = s.CTkToplevel(janelaMenu)
+    JanelaPesquisa.geometry("1000x600") #Definindo o tamanho inicial da janela
+    JanelaPesquisa.title("Clientes Cadastrados") #Definindo nome da janela
+    JanelaPesquisa.resizable(False,False)
+    s.set_appearance_mode("Dark")
+    df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
+    df2 = df[df['nome'].str.contains(nomePesquisado)]
+    def dataframe_to_tk_treeview(root, dataframe):
+        container = ttk.Frame(root)
+        container.pack(fill='both', expand=True)
 
-        gradeNome = s.CTkLabel(JanelaPesquisa, text="NOME")
-        gradeNome.grid(column=2,row=1,pady=12)
+        # Criar o Treeview
+        tree = ttk.Treeview(container)
+        tree.pack(fill='both', expand=True)
 
-        gradeServicos = s.CTkLabel(JanelaPesquisa, text="SERVICOS")
-        gradeServicos.grid(column=3,row=1,columnspan=2,pady=12)
+        # Configurar colunas
+        tree["columns"] = list(dataframe.columns)
+        tree["show"] = "headings"
 
-        gradeDataVenda = s.CTkLabel(JanelaPesquisa, text="DATA_VENDA")
-        gradeDataVenda.grid(column=5,row=1,pady=12,padx=8)
+        # Adicionar cabeçalhos
+        for column in dataframe.columns:
+            tree.heading(column, text=column)
 
-        gradeValor = s.CTkLabel(JanelaPesquisa, text="VALOR")
-        gradeValor.grid(column=6,row=1,pady=12)
+        # Adicionar dados
+        for index, row in dataframe.iterrows():
+            tree.insert("", "end", values=list(row))
+        print('linha 56')
 
-        gradeFormaPag = s.CTkLabel(JanelaPesquisa, text="FORMA DE PAG.")
-        gradeFormaPag.grid(column=7,row=1,pady=12,padx=8)
 
-        gradeTelefone = s.CTkLabel(JanelaPesquisa, text="TELEFONE")
-        gradeTelefone.grid(column=8,row=1,pady=12)
-
-        gradePrimeira = s.CTkLabel(JanelaPesquisa, text="PRIMEIRA VEZ")
-        gradePrimeira.grid(column=9,row=1,pady=12,padx=5)
-
-        for i in range(len(df2)):
-            linhaDF = df2.iloc[i]
-
-            pesquisaPrimeiroCadastro = s.CTkLabel(JanelaPesquisa, text=linhaDF['primeiroCadastro'], font=('Arial Bold', 17))
-            pesquisaPrimeiroCadastro.grid(column=9, row=linhaInicio,pady=7)
-
-            pesquisaTelefone = s.CTkLabel(JanelaPesquisa, text=linhaDF['telefone'],font=('Arial Bold', 17))
-            pesquisaTelefone.grid(column=8, row=linhaInicio,pady=7, padx=10)
-
-            pesquisaFormaPG = s.CTkLabel(JanelaPesquisa, text=linhaDF['formaPagamento'],font=('Arial Bold', 17))
-            pesquisaFormaPG.grid(column=7, row=linhaInicio,pady=7, padx=5)
-
-            pesquisaValor = s.CTkLabel(JanelaPesquisa, text=linhaDF['pago'],font=('Arial Bold', 17))
-            pesquisaValor.grid(column=6, row=linhaInicio,pady=7, padx=10)
-
-            pesquisaDatavenda = s.CTkLabel(JanelaPesquisa, text=linhaDF['dataVenda'],font=('Arial Bold', 17))
-            pesquisaDatavenda.grid(column=5, row=linhaInicio,pady=7)
-
-            pesquisaServicos = s.CTkLabel(JanelaPesquisa, text=linhaDF['servicos'],font=('Arial Bold', 15))
-            pesquisaServicos.grid(column=3, row=linhaInicio,pady=7, columnspan=2, padx=10)
-
-            PesquisaNome = s.CTkLabel(JanelaPesquisa, text=linhaDF['nome'],font=('Arial Bold', 17))
-            PesquisaNome.grid(column=2, row=linhaInicio,pady=7)
-
-            linhaInicio += 1
-        
         BTNVoltar = s.CTkButton(JanelaPesquisa,text="Voltar",command=lambda:Voltar(JanelaPesquisa))
-        BTNVoltar.grid(row=2,column=1, padx=5, pady=5)
-    except:
-        statusvar.set("Arquivo não encontrado.")
-
+        BTNVoltar.pack(padx=5, pady=5)
+        return tree
+    dataframe_to_tk_treeview(JanelaPesquisa,df2)
 
 def Voltar(j):
     janelaMenu.deiconify()
