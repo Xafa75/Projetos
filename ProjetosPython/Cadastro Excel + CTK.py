@@ -23,75 +23,75 @@ from openpyxl import Workbook,load_workbook
 global janelaPesquisa
 
 def pesquisa(nomePesquisado):
-    janelaMenu.withdraw()
-    JanelaPesquisa = s.CTkToplevel(janelaMenu)
-    JanelaPesquisa.geometry("1000x600") #Definindo o tamanho inicial da janela
-    JanelaPesquisa.title("Clientes Cadastrados") #Definindo nome da janela
-    JanelaPesquisa.resizable(False,False)
-    s.set_appearance_mode("Dark")
-    df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
-    df2 = df[df['nome'].str.contains(nomePesquisado)]
-    linhaInicio = 2
+    try:
+        df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
+        df2 = df[df['nome'].str.contains(nomePesquisado)]
+        janelaMenu.withdraw()
+        JanelaPesquisa = s.CTkToplevel(janelaMenu)
+        JanelaPesquisa.geometry("1000x600") #Definindo o tamanho inicial da janela
+        JanelaPesquisa.title("Clientes Cadastrados") #Definindo nome da janela
+        JanelaPesquisa.resizable(False,False)
+        s.set_appearance_mode("Dark")
+        df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
+        df2 = df[df['nome'].str.contains(nomePesquisado)]
+        linhaInicio = 2
 
-    gradeNome = s.CTkLabel(JanelaPesquisa, text="NOME")
-    gradeNome.grid(column=2,row=1,pady=12)
+        gradeNome = s.CTkLabel(JanelaPesquisa, text="NOME")
+        gradeNome.grid(column=2,row=1,pady=12)
 
-    gradeServicos = s.CTkLabel(JanelaPesquisa, text="SERVICOS")
-    gradeServicos.grid(column=3,row=1,columnspan=2,pady=12)
+        gradeServicos = s.CTkLabel(JanelaPesquisa, text="SERVICOS")
+        gradeServicos.grid(column=3,row=1,columnspan=2,pady=12)
 
-    gradeDataVenda = s.CTkLabel(JanelaPesquisa, text="DATA_VENDA")
-    gradeDataVenda.grid(column=5,row=1,pady=12,padx=8)
+        gradeDataVenda = s.CTkLabel(JanelaPesquisa, text="DATA_VENDA")
+        gradeDataVenda.grid(column=5,row=1,pady=12,padx=8)
 
-    gradeValor = s.CTkLabel(JanelaPesquisa, text="VALOR")
-    gradeValor.grid(column=6,row=1,pady=12)
+        gradeValor = s.CTkLabel(JanelaPesquisa, text="VALOR")
+        gradeValor.grid(column=6,row=1,pady=12)
 
-    gradeFormaPag = s.CTkLabel(JanelaPesquisa, text="FORMA DE PAG.")
-    gradeFormaPag.grid(column=7,row=1,pady=12,padx=8)
+        gradeFormaPag = s.CTkLabel(JanelaPesquisa, text="FORMA DE PAG.")
+        gradeFormaPag.grid(column=7,row=1,pady=12,padx=8)
 
-    gradeTelefone = s.CTkLabel(JanelaPesquisa, text="TELEFONE")
-    gradeTelefone.grid(column=8,row=1,pady=12)
+        gradeTelefone = s.CTkLabel(JanelaPesquisa, text="TELEFONE")
+        gradeTelefone.grid(column=8,row=1,pady=12)
 
-    gradePrimeira = s.CTkLabel(JanelaPesquisa, text="PRIMEIRA VEZ")
-    gradePrimeira.grid(column=9,row=1,pady=12)
+        gradePrimeira = s.CTkLabel(JanelaPesquisa, text="PRIMEIRA VEZ")
+        gradePrimeira.grid(column=9,row=1,pady=12,padx=5)
 
-    for i in range(len(df2)):
-        linhaDF = df2.iloc[i]
+        for i in range(len(df2)):
+            linhaDF = df2.iloc[i]
 
-        pesquisaPrimeiroCadastro = s.CTkLabel(JanelaPesquisa, text=linhaDF['primeiroCadastro'], font=('Arial Bold', 17))
-        pesquisaPrimeiroCadastro.grid(column=9, row=linhaInicio,pady=7)
+            pesquisaPrimeiroCadastro = s.CTkLabel(JanelaPesquisa, text=linhaDF['primeiroCadastro'], font=('Arial Bold', 17))
+            pesquisaPrimeiroCadastro.grid(column=9, row=linhaInicio,pady=7)
 
-        pesquisaTelefone = s.CTkLabel(JanelaPesquisa, text=str(linhaDF['telefone']),font=('Arial Bold', 17))
-        pesquisaTelefone.grid(column=8, row=linhaInicio,pady=7, padx=10)
+            pesquisaTelefone = s.CTkLabel(JanelaPesquisa, text=linhaDF['telefone'],font=('Arial Bold', 17))
+            pesquisaTelefone.grid(column=8, row=linhaInicio,pady=7, padx=10)
 
-        pesquisaFormaPG = s.CTkLabel(JanelaPesquisa, text=linhaDF['formaPagamento'],font=('Arial Bold', 17))
-        pesquisaFormaPG.grid(column=7, row=linhaInicio,pady=7, padx=5)
+            pesquisaFormaPG = s.CTkLabel(JanelaPesquisa, text=linhaDF['formaPagamento'],font=('Arial Bold', 17))
+            pesquisaFormaPG.grid(column=7, row=linhaInicio,pady=7, padx=5)
 
-        pesquisaValor = s.CTkLabel(JanelaPesquisa, text=linhaDF['pago'],font=('Arial Bold', 17))
-        pesquisaValor.grid(column=6, row=linhaInicio,pady=7, padx=10)
+            pesquisaValor = s.CTkLabel(JanelaPesquisa, text=linhaDF['pago'],font=('Arial Bold', 17))
+            pesquisaValor.grid(column=6, row=linhaInicio,pady=7, padx=10)
 
-        pesquisaDatavenda = s.CTkLabel(JanelaPesquisa, text=linhaDF['dataVenda'],font=('Arial Bold', 17))
-        pesquisaDatavenda.grid(column=5, row=linhaInicio,pady=7)
+            pesquisaDatavenda = s.CTkLabel(JanelaPesquisa, text=linhaDF['dataVenda'],font=('Arial Bold', 17))
+            pesquisaDatavenda.grid(column=5, row=linhaInicio,pady=7)
 
-        pesquisaServicos = s.CTkLabel(JanelaPesquisa, text=linhaDF['servicos'],font=('Arial Bold', 15))
-        pesquisaServicos.grid(column=3, row=linhaInicio,pady=7, columnspan=2, padx=10)
+            pesquisaServicos = s.CTkLabel(JanelaPesquisa, text=linhaDF['servicos'],font=('Arial Bold', 15))
+            pesquisaServicos.grid(column=3, row=linhaInicio,pady=7, columnspan=2, padx=10)
 
-        PesquisaNome = s.CTkLabel(JanelaPesquisa, text=linhaDF['nome'],font=('Arial Bold', 17))
-        PesquisaNome.grid(column=2, row=linhaInicio,pady=7)
+            PesquisaNome = s.CTkLabel(JanelaPesquisa, text=linhaDF['nome'],font=('Arial Bold', 17))
+            PesquisaNome.grid(column=2, row=linhaInicio,pady=7)
 
-        linhaInicio += 1
-
-    BTNVoltar = s.CTkButton(JanelaPesquisa,text="Voltar",command=lambda:Voltar(JanelaPesquisa))
-    BTNVoltar.grid(row=2,column=1, padx=5, pady=5)
-
-    
-
+            linhaInicio += 1
+        
+        BTNVoltar = s.CTkButton(JanelaPesquisa,text="Voltar",command=lambda:Voltar(JanelaPesquisa))
+        BTNVoltar.grid(row=2,column=1, padx=5, pady=5)
+    except:
+        statusvar.set("Arquivo não encontrado.")
 
 
 def Voltar(j):
     janelaMenu.deiconify()
     j.withdraw()
-
-
 
 
 def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCadastro): #Definindo a função
@@ -107,11 +107,10 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
         sheet.append(clientes) #Define o nome das colunas
         book.save('data.xlsx') 
         statusvar.set("Nova tabela criada")
-    
-    sheet.column_dimensions['A'].width = 25 #Seta o tamanho horizontal das colunas
-    sheet.column_dimensions['B'].width = 30
-    sheet.column_dimensions['C'].width = 11
-    sheet.column_dimensions['F'].width = 12
+        sheet.column_dimensions['A'].width = 25 #Seta o tamanho horizontal das colunas
+        sheet.column_dimensions['B'].width = 30
+        sheet.column_dimensions['C'].width = 11
+        sheet.column_dimensions['F'].width = 12
 
     df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
     if nome in df["nome"].values and dataVenda == data: #Checa se o nome ja foi cadastrado no dia
@@ -182,7 +181,6 @@ ChkVisita.grid(row=2, column=4)
     
 BTNSalvar = s.CTkButton(janelaMenu,text="Salvar", text_color="Black", fg_color="Pink",width=100,command=lambda:EnvioExcel(EntryNome.get(),EntryOBS.get("1.0", "end-1c"),data,EntryValor.get(),OPTPagamento.get(),EntryNumero.get(), ChkVisita.get())) #Botão salvar
 BTNSalvar.grid(row=6,column=5)
-
 
 BTNVer = s.CTkButton(janelaMenu,text="Pesquisar",text_color="Black", fg_color="Pink",command=lambda:pesquisa(EntryNome.get()),width=100) #Botao "Ver cadastros"
 BTNVer.grid(row=6,column=4,padx=5)
