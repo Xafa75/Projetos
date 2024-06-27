@@ -7,68 +7,68 @@ from tkinter import ttk
 import openpyxl.workbook
 import openpyxl
 from openpyxl import Workbook,load_workbook
+from os import path
+
+diretorio = path.join(path.expanduser("~"), "Documents\\data.xlsx")
 #Adicionar:
-
-#Versionamento
-
-#Pagina de pesquisa
-
-#armazenar na pasta documentos
 
 #fazer backup
 
 #Automatizar procurações
 
-
 global janelaPesquisa
 global tree
 def pesquisa(nomePesquisado):
-    df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
-    df2 = df[df['nome'].str.contains(nomePesquisado)]
-    janelaMenu.withdraw()
-    JanelaPesquisa = s.CTkToplevel(janelaMenu)
-    JanelaPesquisa.geometry("1000x600") #Definindo o tamanho inicial da janela
-    JanelaPesquisa.title("Clientes Cadastrados") #Definindo nome da janela
-    JanelaPesquisa.resizable(False,False)
-    s.set_appearance_mode("Dark")
-    df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
-    df2 = df[df['nome'].str.contains(nomePesquisado)]
-    def dataframe_to_tk_treeview(root, dataframe):
-        container = ttk.Frame(root)
-        container.pack(fill='both', expand=True)
+    try:
+        df = pd.read_excel(diretorio,sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
+        df2 = df[df['nome'].str.contains(nomePesquisado)]
+        janelaMenu.withdraw()
+        JanelaPesquisa = s.CTkToplevel(janelaMenu)
+        JanelaPesquisa.geometry("1000x600") #Definindo o tamanho inicial da janela
+        JanelaPesquisa.title("Clientes Cadastrados") #Definindo nome da janela
+        JanelaPesquisa.resizable(False,False)
+        s.set_appearance_mode("Dark")
+        df = pd.read_excel(diretorio,sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
+        df2 = df[df['nome'].str.contains(nomePesquisado)]
+        def dataframe_to_tk_treeview(root, dataframe):
+            container = ttk.Frame(root)
+            container.pack(fill='both', expand=True)
 
-        # Criar o Treeview
-        tree = ttk.Treeview(container)
-        tree.pack(fill='both', expand=True)
+            # Criar o Treeview
+            tree = ttk.Treeview(container)
+            tree.pack(fill='both', expand=True)
 
-        # Configurar colunas
-        tree["columns"] = list(dataframe.columns)
-        tree["show"] = "headings"
+            # Configurar colunas
+            tree["columns"] = list(dataframe.columns)
+            tree["show"] = "headings"
 
-        # Adicionar cabeçalhos
-        for column in dataframe.columns:
-            tree.heading(column, text=column)
+            # Adicionar cabeçalhos
+            for column in dataframe.columns:
+                tree.heading(column, text=column)
 
-        # Adicionar dados
-        for index, row in dataframe.iterrows():
-            tree.insert("", "end", values=list(row))
-        print('linha 56')
+            # Adicionar dados
+            for index, row in dataframe.iterrows():
+                tree.insert("", "end", values=list(row))
 
 
-        BTNVoltar = s.CTkButton(JanelaPesquisa,text="Voltar",command=lambda:Voltar(JanelaPesquisa))
-        BTNVoltar.pack(padx=5, pady=5)
-        return tree
-    dataframe_to_tk_treeview(JanelaPesquisa,df2)
+            BTNVoltar = s.CTkButton(JanelaPesquisa,text="Voltar",command=lambda:Voltar(JanelaPesquisa))
+            BTNVoltar.pack(padx=5, pady=5)
+            return tree
+        dataframe_to_tk_treeview(JanelaPesquisa,df2)
+    except:
+        statusvar.set("Ainda não há cadastros.").focus()
 
 def Voltar(j):
     janelaMenu.deiconify()
+    EntryNome.delete(0,"end")
+    EntryNome.focus()
     j.withdraw()
 
 
 def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCadastro): #Definindo a função
     statusvar.set("") #Limpa a variavel de status
     try: #Tenta acessar a tabela
-        book = load_workbook('data.xlsx') #Define o book ultilizado
+        book = load_workbook(diretorio) #Define o book ultilizado
         sheet = book['Sheet'] #Define a pagina utilizada
         statusvar.set("Tabela encontrada") 
     except:
@@ -76,14 +76,14 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
         book = openpyxl.Workbook()
         sheet = book['Sheet']
         sheet.append(clientes) #Define o nome das colunas
-        book.save('data.xlsx') 
+        book.save(diretorio) 
         statusvar.set("Nova tabela criada")
         sheet.column_dimensions['A'].width = 25 #Seta o tamanho horizontal das colunas
         sheet.column_dimensions['B'].width = 30
         sheet.column_dimensions['C'].width = 11
         sheet.column_dimensions['F'].width = 12
 
-    df = pd.read_excel('data.xlsx',sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
+    df = pd.read_excel(diretorio,sheet_name = 'Sheet') #guarda o arquivo excel em um dataframe
     if nome in df["nome"].values and dataVenda == data: #Checa se o nome ja foi cadastrado no dia
         statusvar.set("Cadastro repetido")
 
@@ -93,7 +93,7 @@ def EnvioExcel(nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCada
     else:
         try:
             sheet.append([nome,servicos,dataVenda,pago,formaPagamento,telefone,primeiroCadastro]) #Guarda as opções passadas na função em uma linha do excel
-            book.save('data.xlsx')
+            book.save(diretorio)
             statusvar.set("Cadastrado com sucesso!")
         except:
             statusvar.set("Feche o Excel!")
