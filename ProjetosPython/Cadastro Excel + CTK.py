@@ -89,7 +89,7 @@ def EnvioExcel(nome, servicos, dataVenda, pago, formaPagamento, telefone):
 
     # Verificar duplicidade e salvar dados
     df = pd.read_excel(diretorio, sheet_name='Sheet')
-    if nome in df["nome"].values and dataVenda == data:
+    if nome in df["nome"].values and dataVenda in df['dataVenda']:
         statusvar.set("Cadastro repetido")
     elif nome == "" or pago == "":
         statusvar.set("Falta algo!")
