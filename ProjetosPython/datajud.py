@@ -11,17 +11,15 @@ headers = {'Authorization': api_key,
 def envio(sort):
     while True:
         payload = json.dumps({
-        "size":500,
-        "query": {"match" : {"assuntos.codigo": 3431
-                            }
-                    },
+        "size":5000,
+        "query":{"match" : {"assuntos.codigo": 3431}},
+
         "sort":[{"dataAjuizamento":{ "order" : "asc" }}],
         "search_after": [ sort ]
         })
 
         response = requests.request("POST",url,headers=headers, data=payload)
-        dadosBrutos = response.json()
-
+        dadosBrutos = response.json()   
         dados_dict = dadosBrutos['hits']['hits']
         for i in dados_dict:
             sort = i['sort']
@@ -38,12 +36,10 @@ def envio(sort):
             classe = i["_source"]['classe']['nome']
             padrao = re.compile(r'20[1-2]\d......')
             sort = i['sort'][0]
-            if orgao['codigoMunicipioIBGE'] == 3303401 and padrao.match(strData):
-                print(strData,classe, numeroProcesso, vara, formato, ultimaAtualizacao,sort)
-            print(orgao)
-            try:
-                envio(sort)
-            except:
-                break
+            print(strData,classe, numeroProcesso, formato, ultimaAtualizacao,sort, assuntos)           
+        try:
+            envio(sort)
+        except:
+            break
 envio(sort = 0)
 
