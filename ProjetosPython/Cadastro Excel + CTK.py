@@ -10,6 +10,7 @@ data= data.strftime("%d/%m/%Y")
 
 # Variáveis globais
 diretorio = path.join(path.expanduser("~"), "Documents\\data.xlsx")
+
 janelaPesquisa = None
 tree = None
 
@@ -89,7 +90,8 @@ def EnvioExcel(nome, servicos, dataVenda, pago, formaPagamento, telefone):
 
     # Verificar duplicidade e salvar dados
     df = pd.read_excel(diretorio, sheet_name='Sheet')
-    if nome in df["nome"].values and dataVenda in df['dataVenda']:
+    print(df['nome'],df['dataVenda'], data,nome)
+    if nome in df["nome"].values and dataVenda in df['dataVenda'].values:
         statusvar.set("Cadastro repetido")
     elif nome == "" or pago == "":
         statusvar.set("Falta algo!")
