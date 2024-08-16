@@ -18,9 +18,10 @@ def envio(sort):
             "sort":[{"dataAjuizamento":{ "order" : "asc" }}],
             "search_after": [ sort ]
             })
-            response = requests.request("POST",url,headers=headers, data=payload,timeout=10)
+            response = requests.request("POST",url,headers=headers, data=payload,timeout=20)
         except requests.exceptions.ReadTimeout:
             df = pd.DataFrame(listaProcessos, columns=('numeroProcesso','classe','orgao','strData', 'ultimaAtualizacao','formato','assuntos','sort'))
+            df.to_csv('processosRJ.csv')
             print(df)
             break
         dadosBrutos = response.json()   
@@ -33,10 +34,11 @@ def envio(sort):
             formato = i['_source']['formato']['nome']
             ultimaAtualizacao = i['_source']['dataHoraUltimaAtualizacao']
             classe = i["_source"]['classe']['nome']
-            padrao = re.compile(r'20[1-2]\d......')
+            #padrao = re.compile(r'20[1-2]\d......')
             sort = i['sort'][0]
             print(numeroProcesso,classe,orgao,strData, ultimaAtualizacao,formato,assuntos,sort)
-            listaProcessos.append([numeroProcesso,classe,orgao,strData, ultimaAtualizacao,formato,assuntos,sort])
-
+            if "NOVA FRIBURGO" in orgao:
+                listaProcessos.append([numeroProcesso,classe,orgao,strData, ultimaAtualizacao,formato,assuntos,sort])
+    return listaProcessos
 envio(sort = 0)
 
