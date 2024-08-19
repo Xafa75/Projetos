@@ -1,3 +1,6 @@
+#O código a seguir é o consumo de uma API púbica (datajud) que disponibiliza metadados sobre processos em cada estado, transformando-os em um Dataframe
+#e salvando-os em um arquivo csv.
+
 import requests
 import json
 import re
