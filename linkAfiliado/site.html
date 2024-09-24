@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samara Loyola</title>
+    <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
+    <style>
+        body {
+            background-color: #68229c;
+        }
+
+        #cont {
+            position: absolute; 
+            top: 60%; 
+            left: 50%; 
+            transform: translate(-50%, -50%)
+        }
+
+        .botao {
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            border: 2px solid rgb(0, 0, 0);
+            transition: none;
+            box-shadow: rgb(0, 0, 0) 8px 8px 0px 0px;
+            color: rgb(9, 9, 9);
+            background-color: rgb(232, 39, 232);
+            border-radius: 8px;
+            width: 75vw;
+            height: 7vh;
+            font-size: medium;
+    
+        }
+        .botao:hover {
+            box-shadow: rgb(0, 0, 0) 4px 4px 0px 0px;
+            transform: translate(4px,4px);
+            cursor: pointer;
+        }
+
+        #topo {
+            text-align: center;
+        }
+
+        #icone {
+            margin-top: 5%;
+            border-radius: 50%;
+            width: 150px;
+        }
+
+        .texto {
+            font-family: 'Capriola';
+            flex: 1;
+            text-align: center;
+            
+        }
+
+        .pequeno{
+            width: 4.7vh;
+            left: 10px;
+            position:absolute;
+            text-decoration: none;
+
+        }
+        a {
+            text-decoration: none;  
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="topo">
+            <img id="icone" src="img/icon.webp">
+            <h2 class="texto" id="nome">Cabelereira Samara Loyola</h2>
+            <a class="texto">🏆 Especialista em alisamento saudável 🏆</a>
+        </div>
+        <container id="cont">
+            <a href="http://wa.me/message/F2P7WWTTEDOMD1" target="_blank"><button class="botao texto"> 
+                <img class="pequeno" src="img/wpp.png">Whatsapp</button></a>
+
+            <a href="https://www.facebook.com/profile.php?id=100003953982137&ref=xav_ig_profile_web" target="_blank"><button class="botao texto">
+                <img class="pequeno" src="img/facebook.png">
+               Facebook</button></a>
+
+            <a href="https://s.shopee.com.br/5VC74TbyD8" target="_blank"><button class="botao texto">
+                <img class="pequeno" src="img/massageadorcadeira.webp">Massageador Almofada</button></a>
+
+            <a href="https://s.shopee.com.br/6ASDOLMLeV" target="_blank"><button class="botao texto">
+                <img class="pequeno" src="img/massageadorcabeca.webp">Massageador de Cabeça</button></a>
+
+        </container>
+    </div>
+</body>
+</html>
