@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samara Loyola</title>
+    <link rel="icon" type="image/png" href="img/escovaIcon.png">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <style>
         body {
             background-color: #68229c;
         }
 
-        #cont {
+        #container {
             position: absolute; 
             top: 60%; 
             left: 50%; 
@@ -44,12 +43,13 @@
 
         #topo {
             text-align: center;
+            height: 30px;
         }
 
         #icone {
-            margin-top: 5%;
+            margin-top: px;
             border-radius: 50%;
-            width: 150px;
+            height: 18vh;
         }
 
         .texto {
@@ -59,7 +59,7 @@
             
         }
 
-        .pequeno{
+        .iconeProduto{
             width: 4.7vh;
             left: 10px;
             position:absolute;
@@ -69,30 +69,47 @@
         a {
             text-decoration: none;  
         }
+
+        #nome {
+            text-decoration: underline;
+            font-size: 3vh;
+        }
+
+        @media (min-width: 820px) {
+            .botao {
+                width: 700px;
+            }
+        }
+
+        .titulo {
+            font-size: 2vh;
+        }   
+
+
     </style>
 </head>
 <body>
     <div>
         <div id="topo">
             <img id="icone" src="img/icon.webp">
-            <h2 class="texto" id="nome">Cabelereira Samara Loyola</h2>
-            <a class="texto">🏆 Especialista em alisamento saudável 🏆</a>
+            <h2 class="texto" id="nome">@samaraloyola_hair</h2>
+            <a class="texto titulo">🏆 Especialista em alisamento saudável 🏆</a>
         </div>
-        <container id="cont">
+        <div id="container">
             <a href="http://wa.me/message/F2P7WWTTEDOMD1" target="_blank"><button class="botao texto"> 
-                <img class="pequeno" src="img/wpp.png">Whatsapp</button></a>
+                <img class="iconeProduto" src="img/wpp.png">Whatsapp</button></a>
 
             <a href="https://www.facebook.com/profile.php?id=100003953982137&ref=xav_ig_profile_web" target="_blank"><button class="botao texto">
-                <img class="pequeno" src="img/facebook.png">
+                <img class="iconeProduto" src="img/facebook.png">
                Facebook</button></a>
 
             <a href="https://s.shopee.com.br/5VC74TbyD8" target="_blank"><button class="botao texto">
-                <img class="pequeno" src="img/massageadorcadeira.webp">Massageador Almofada</button></a>
+                <img class="iconeProduto" src="img/massageadorcadeira.webp">Massageador Almofada</button></a>
 
             <a href="https://s.shopee.com.br/6ASDOLMLeV" target="_blank"><button class="botao texto">
-                <img class="pequeno" src="img/massageadorcabeca.webp">Massageador de Cabeça</button></a>
+                <img class="iconeProduto" src="img/massageadorcabeca.webp">Massageador de Cabeça</button></a>
 
-        </container>
+            </div>
     </div>
 </body>
 </html>
