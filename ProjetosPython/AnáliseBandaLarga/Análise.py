@@ -1,7 +1,7 @@
 import pandas as pd 
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('Meu_Municipio_Acessos.csv',sep = ';') #Transforma o arquivo CSV em um DataFrame Pandas.
+df = pd.read_csv('ProjetosPython/AnáliseBandaLarga/entrada.csv',sep = ';') #Transforma o arquivo CSV em um DataFrame Pandas.
 
 df_BandaLarga = df[df["Serviço"] == "Banda Larga Fixa"] # Separa apenas as linhas que contem o serviço de banda larga.
 df_BandaLarga = df_BandaLarga[df_BandaLarga["Ano"] == 2024] # Separa apenas as linhas que contem o ano de 2024.

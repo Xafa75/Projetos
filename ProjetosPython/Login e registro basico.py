@@ -8,6 +8,9 @@ if os.path.isfile('sample.json') == True:
     usuarios = json.load(reader)
 else:
   usuarios = []
+
+
+
 def registro():
     seu_login = input('Login: ')
     for i in usuarios:
@@ -20,12 +23,15 @@ def registro():
     if len(sua_senha) > 7:
       usuarios.append({id:{sua_senha:seu_login}})
     else:
-      print('Sua senha é muito curta')
+      print('!--------Sua senha é muito curta--------!')
       menu()
     json_object = json.dumps(usuarios, indent = 4) 
     with open("sample.json", "w") as outfile:
       outfile.write(json_object)
     menu()
+
+
+
 def entrada():
   eLogin = input('Digite aqui seu login: ')
   eSenha = input('Digite aqui sua senha: ')
@@ -37,6 +43,9 @@ def entrada():
       pass
   print("Nao Logado")
   menu()
+
+
+
 def menu():
   opt = input('[1]Login\n[2]Register\n[3]Show\n[4]Close\n')
   if opt == '1':
